@@ -1,10 +1,14 @@
 class Solution{	
-	public:
-		bool checkPrime(int num){
-            if (num==1) return false;
-			for (int i=2;i<num;i++){
-                if (num%i==0) return false;
-            }
-            return true;
-		}
+public:
+    bool checkPrime(int num){
+        if (num <= 1) return false;
+        return prime(num, 2);
+    }
+
+private:
+    bool prime(int num, int x){
+        if (x * x > num) return true;           
+        if (num % x == 0) return false;         
+        return prime(num, x + 1);
+    }
 };
